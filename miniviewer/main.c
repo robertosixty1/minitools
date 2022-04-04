@@ -42,7 +42,7 @@ int main(int argc, char** argv)
     SDL_Surface* image = IMG_Load(file_path);
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image);
 
-    SDL_SetRenderDrawColor(renderer, 127, 127, 127, 255);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 
     int x,y,n;
     unsigned char *image_data = stbi_load(file_path, &x, &y, &n, 0);
