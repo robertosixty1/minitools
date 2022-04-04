@@ -15,7 +15,7 @@ void scc(int code)
 {
     if (code < 0)
     {
-        fprintf(stderr, "ERROR: The graphics framework throw an error:  %s\n", SDL_GetError());
+        fprintf(stderr, "ERROR: The graphics framework throw an error: %s\n", SDL_GetError());
         exit(1);
     }
 }
