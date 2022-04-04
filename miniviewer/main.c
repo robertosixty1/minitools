@@ -3,9 +3,7 @@
 #include <stdlib.h>
 
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h> // BMP, GIF, JPEG, LBM, PCX,
-                            // PNG, PNM, SVG, TGA, TIFF,
-                            // WEBP, XCF, XPM, XV
+#include <SDL2/SDL_image.h>
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
@@ -17,7 +15,7 @@ void scc(int code)
 {
     if (code < 0)
     {
-        fprintf(stderr, "SDL ERROR: %s\n", SDL_GetError());
+        fprintf(stderr, "ERROR: The graphics framework throw an error:  %s\n", SDL_GetError());
         exit(1);
     }
 }
