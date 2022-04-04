@@ -12,3 +12,7 @@ JPG, PNG, TGA, BMP, PSD, GIF, HDR & PIC.
 $ make
 $ ./miniviewer ./test.png
 ```
+
+# References
+
+[./test.png](./test.png) was taken from [this](https://en.wikipedia.org/wiki/Portable_Network_Graphics) site.
