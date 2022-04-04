@@ -74,14 +74,17 @@ int main(int argc, char** argv)
             switch (event.key.keysym.sym)
             {
 
+            case SDLK_DOWN: {
+                if (imagesrc_rect.h > 500)
+                {
+                    imagesrc_rect.w /= scale_change;
+                    imagesrc_rect.h /= scale_change;
+                }
+            } break;
+
             case SDLK_UP: {
                 imagesrc_rect.w *= scale_change;
                 imagesrc_rect.h *= scale_change;
-            } break;
-
-            case SDLK_DOWN: {
-                imagesrc_rect.w /= scale_change;
-                imagesrc_rect.h /= scale_change;
             } break;
 
             case SDLK_d: {
