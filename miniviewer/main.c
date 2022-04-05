@@ -8,7 +8,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-#define WIDTH 800
+#define WIDTH  800
 #define HEIGHT 600
 
 void scc(int code)
@@ -45,9 +45,8 @@ int main(int argc, char** argv)
     scc(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF | IMG_INIT_WEBP));
 
     SDL_Event event;
-    SDL_Window* window = SDL_CreateWindow("miniviewer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, 0);
+    SDL_Window* window = SDL_CreateWindow("miniviewer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_RESIZABLE);
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0);
-    SDL_SetWindowResizable(window, true);
 
     SDL_Surface* image = IMG_Load(file_path);
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image);
@@ -89,8 +88,11 @@ int main(int argc, char** argv)
             } break;
 
             case SDLK_UP: {
-                imagesrc_rect.w *= scale_change;
-                imagesrc_rect.h *= scale_change;
+                if (imagesrc_rect.h < 1500)
+                {
+                    imagesrc_rect.w *= scale_change;
+                    imagesrc_rect.h *= scale_change;
+                }
             } break;
 
             case SDLK_d: {
