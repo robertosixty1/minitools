@@ -48,6 +48,12 @@ int main(int argc, char** argv)
     unsigned char *image_data = stbi_load(file_path, &x, &y, &n, 0);
     stbi_image_free(image_data);
 
+    if (image_data == NULL)
+    {
+        fprintf(stderr, "ERROR: Invalid image\n");
+        exit(1);
+    }
+
     // image rect
     SDL_Rect imagesrc_rect = {
          .x = WIDTH/2 - x/2,
