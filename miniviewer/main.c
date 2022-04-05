@@ -31,6 +31,16 @@ int main(int argc, char** argv)
 
     const char* file_path = argv[1];
 
+    int x,y,n;
+    unsigned char *image_data = stbi_load(file_path, &x, &y, &n, 0);
+    stbi_image_free(image_data);
+
+    if (image_data == NULL)
+    {
+        fprintf(stderr, "ERROR: Invalid image\n");
+        exit(1);
+    }
+
     scc(SDL_Init(SDL_INIT_VIDEO));
     scc(IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG | IMG_INIT_TIF | IMG_INIT_WEBP));
 
@@ -43,16 +53,6 @@ int main(int argc, char** argv)
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image);
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-
-    int x,y,n;
-    unsigned char *image_data = stbi_load(file_path, &x, &y, &n, 0);
-    stbi_image_free(image_data);
-
-    if (image_data == NULL)
-    {
-        fprintf(stderr, "ERROR: Invalid image\n");
-        exit(1);
-    }
 
     // image rect
     SDL_Rect imagesrc_rect = {
